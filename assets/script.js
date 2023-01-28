@@ -46,21 +46,41 @@ function displayWeatherInfo() {
         var currentIcon = $("#current-icon");
         var currentWeatherIcon = response.list[0].weather[0].icon;
         currentIcon.attr("src", "http://openweathermap.org/img/wn/" + currentWeatherIcon + "@4x.png");
+
+        // add weather conditions for coming 5 days
+        // for (var i=0; i <6; i++) {
+        //     $("#day" + (i+1) + "Date").text
+        // }
+
+        // for (var i=0; i<5; i++) {
+        //     $(".temperature")
+        // }
+
+        // $(".temperature").each(function () {
+        //     $(this).text("Current Temperature: " + response.list[i].main.temp);
+        // })
+
+        // var fiveDayTemperature = $(".temperature").
+        for (var i = 0; i < 5; i++) {
+            // temperature
+            $(".temperature").text("Temperature: " + response.list[i].main.temp);
+            // humidity
+            $(".humidity").text("Humidity: " + response.list[i].main.humidity + "%");
+            //icons
+            $(".img-class").attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[i].icon + "@4x.png");
+        }
+        
     });
 }
 
-//icon
 
 
-//windspeed
-
-// add weather conditions for coming 5 days
 
 //weather condistions are displayed as a 5 day forecast showing
 // date
-//icons
-// temperature
-// humidity
+
+
+
 
 
 //when a city is searched append buttons to the list of button
@@ -99,6 +119,12 @@ $("#search-button").on("click", function (event) {
     renderButtons();
     displayWeatherInfo();
 });
+
+function addHistory(city) {
+    // Check for changes in the local item and log them
+    cities.push(city);
+    localStorage.setItem("cities", cities);
+};
 
 // use local storage to persist data
 
