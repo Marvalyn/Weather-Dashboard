@@ -16,42 +16,28 @@ function displayWeatherInfo() {
       
        console.log(queryURL);
        console.log(response);
- 
- //     //   $("#movies-view").empty();
-  
- //     //   //create a HTML tag for the poster image
- //     //   var poster = $("<img>");
- //     //   //update the source attribute
- //     //   poster.attr("src", response.Poster);
- //     //   $("#movies-view").append(poster);
-  
-  
- //     //   //create a div for the rating
- //     //   var rating = $("<div>");
- //     //   rating.text("Rated " + response.Rated);
-  
- //     //   //create a div for the release date
- //     //   var realeaseMoment = moment(response.Released, "DD MMM YYYY");
- //     //   var formattedDate = realeaseMoment.format("MMMM [the] Do [in the superawesome year] YYYY");
-  
- //     //   var releaseDate = $("<div>Released " +formattedDate +"</div>");
-  
- //     //   //create a div for the plot
- //     //   var plot = $("<div>" + response.Plot + "</div>");
-  
- //     //   //append to movies-view div
-  
- //     //   $("#movies-view").prepend($("<hr>"));
- //     //   $("#movies-view").prepend(releaseDate);
- //     //   $("#movies-view").prepend(rating);
- //     //   $("#movies-view").prepend(poster);
- //     //   $("#movies-view").prepend(plot);
-  
+
+       //add weather info for current day
+       //city name
+// date
+//icon
+// temperature
+// humidity
+//windspeed
+
+// add weather conditions for coming 5 days
+
+//weather condistions are displayed as a 5 day forecast showing
+// date
+//icons
+// temperature
+// humidity
   
      });
   
    }
 
+   //when a city is searched append buttons to the list of button
 function renderButtons() {
 
     // Deleting the movie buttons prior to adding new movie buttons
@@ -90,20 +76,14 @@ $("#search-button").on("click", function(event) {
 
 // use local storage to persist data
 
-// use api key to retrieve data for a city when the city is searched
+// when button from list is clicked they are again presented with curent and future conditions for that city
+// $(".city-history").on("click", function (event) {
+//     event.preventDefault();
+//     displayWeatherInfo();
+// })
 
 
 
-//city name
-// date
-//icon
-// temperature
-// humidity
-//windspeed
-//weather condistions are displayed as a 5 day forecast showing
-// date
-//icons
-// temperature
-// humidity
+
+
  
-//when a city is searched append buttons to the list of button

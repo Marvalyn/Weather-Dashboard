@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <!-- <link rel="stylesheet" href="styles/reset.css" /> -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" /> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <title>Weather Dashboard</title>
 </head>
@@ -42,7 +42,57 @@
 
       <div class="col-lg-9 pb-3">
         <section id="today" class="mt-3" role="region" aria-live="polite"></section>
+        <div id="current-weather-container">
+          <div id="current-icon-container">
+            <h1 id="current-city-name">Current Weather In: </h1>
+            <p id="current-date">Date:</p>
+            <img src="" id="current-icon">
+            <p id="current-temperature">Current Temperature: </p>
+            <p id="current-humidity">Current Humidity: </p>
+            <p id="current-windspeed">Current Windspeed: </p>
+          </div>
+        </div>
+
         <section id="forecast" class="row mt-3" role="region" aria-live="polite"></section>
+        <div id="weather-container">
+          <div id="icon-container">
+            <div class="icons">
+              <p class="weather" id="day1">Date: </p>
+              <div class="image"><img src="dots.png" class="img-class" alt="icons representing weather conditions">
+              </div>
+              <p class="temperature">Current Temperature: </p>
+              <p class="humidity">Current Humidity: </p>
+            </div>
+            <div class="icons">
+              <p class="weather" id="day2">Date: </p>
+              <div class="image"><img src="dots.png" class="img-class" alt="icons representing weather conditions">
+              </div>
+              <p class="temperature">Current Temperature: </p>
+              <p class="humidity">Current Humidity: </p>
+            </div>
+            <div class="icons">
+              <p class="weather" id="day3">Date: </p>
+              <div class="image"><img src="dots.png" class="img-class" alt="icons representing weather conditions">
+              </div>
+              <p class="temperature">Current Temperature: </p>
+              <p class="humidity">Current Humidity: </p>
+            </div>
+            <div class="icons">
+              <p class="weather" id="day4">Date: </p>
+              <div class="image"><img src="dots.png" class="img-class" alt="icons representing weather conditions">
+              </div>
+              <p class="temperature">Current Temperature: </p>
+              <p class="humidity">Current Humidity: </p>
+            </div>
+            <div class="icons">
+              <p class="weather" id="day5">Date: </p>
+              <div class="image"><img src="dots.png" class="img-class" alt="icons representing weather conditions">
+              </div>
+              <p class="temperature">Current Temperature: </p>
+              <p class="humidity">Current Humidity: </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
