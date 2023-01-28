@@ -19,6 +19,12 @@ function displayWeatherInfo() {
 
        //add weather info for current day
        //city name
+       //select element by ID
+       var cityName = $("#current-city-name");
+       // adding text from JSON data to complete city name
+       cityName.text("Current Weather In: " + response.city.name);
+});
+}
 // date
 //icon
 // temperature
@@ -32,10 +38,7 @@ function displayWeatherInfo() {
 //icons
 // temperature
 // humidity
-  
-     });
-  
-   }
+
 
    //when a city is searched append buttons to the list of button
 function renderButtons() {
