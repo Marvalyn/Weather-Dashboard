@@ -43,8 +43,8 @@ $("#search-button").on("click", function(event) {
 function displayWeatherInfo() {
 
    var inputCity = $("#search-input").val();
-    var apikey = "e192b61e6756ca61eb77509d35105cc3";
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q="+inputCity+"&appid="+apikey;
+    var apikey = "184c633681edbe39db7894b1a26e644b";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+inputCity+"&appid="+apikey;
  
     // Creates AJAX call for the specific city being called
     $.ajax({
