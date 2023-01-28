@@ -24,13 +24,21 @@ function displayWeatherInfo() {
        // adding text from JSON data to complete city name
        cityName.text("Current Weather In: " + response.city.name);
 
+       // date
+       // creating variable with moment.js
        var today =moment();
+       //formatting date and adding it to the p element with id="current-date"
        $("#current-date").text("Date: " + today.format("dddd, Do MMMM YYYY"));
+
+       // temperature
+       var currentTemp = $("#current-temperature");
+       currentTemp.text("Current Temperature: " + response.list[0].main.temp);
+
 });
 }
-// date
+
 //icon
-// temperature
+
 // humidity
 //windspeed
 
