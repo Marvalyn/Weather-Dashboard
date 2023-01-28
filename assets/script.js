@@ -1,6 +1,56 @@
 //add url + api key
 var cities =[];
 
+function displayWeatherInfo() {
+
+    var inputCity = $("#search-input").val();
+     var apikey = "184c633681edbe39db7894b1a26e644b";
+     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&units=metric&appid="+apikey;
+  
+    //  console.log(inputCity);
+     // Creates AJAX call for the specific city being called
+     $.ajax({
+       url: queryURL,
+       method: "GET"
+     }).then(function(response) {
+      
+       console.log(queryURL);
+       console.log(response);
+ 
+ //     //   $("#movies-view").empty();
+  
+ //     //   //create a HTML tag for the poster image
+ //     //   var poster = $("<img>");
+ //     //   //update the source attribute
+ //     //   poster.attr("src", response.Poster);
+ //     //   $("#movies-view").append(poster);
+  
+  
+ //     //   //create a div for the rating
+ //     //   var rating = $("<div>");
+ //     //   rating.text("Rated " + response.Rated);
+  
+ //     //   //create a div for the release date
+ //     //   var realeaseMoment = moment(response.Released, "DD MMM YYYY");
+ //     //   var formattedDate = realeaseMoment.format("MMMM [the] Do [in the superawesome year] YYYY");
+  
+ //     //   var releaseDate = $("<div>Released " +formattedDate +"</div>");
+  
+ //     //   //create a div for the plot
+ //     //   var plot = $("<div>" + response.Plot + "</div>");
+  
+ //     //   //append to movies-view div
+  
+ //     //   $("#movies-view").prepend($("<hr>"));
+ //     //   $("#movies-view").prepend(releaseDate);
+ //     //   $("#movies-view").prepend(rating);
+ //     //   $("#movies-view").prepend(poster);
+ //     //   $("#movies-view").prepend(plot);
+  
+  
+     });
+  
+   }
 
 function renderButtons() {
 
@@ -35,61 +85,15 @@ $("#search-button").on("click", function(event) {
   
     // calling renderButtons which handles the processing of our city array
     renderButtons();
+    displayWeatherInfo();
   });
 
 // use local storage to persist data
 
 // use api key to retrieve data for a city when the city is searched
-function displayWeatherInfo() {
 
-   var inputCity = $("#search-input").val();
-    var apikey = "184c633681edbe39db7894b1a26e644b";
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+inputCity+"&appid="+apikey;
- 
-    // Creates AJAX call for the specific city being called
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
-     
-      console.log(response);
 
-//     //   $("#movies-view").empty();
- 
-//     //   //create a HTML tag for the poster image
-//     //   var poster = $("<img>");
-//     //   //update the source attribute
-//     //   poster.attr("src", response.Poster);
-//     //   $("#movies-view").append(poster);
- 
- 
-//     //   //create a div for the rating
-//     //   var rating = $("<div>");
-//     //   rating.text("Rated " + response.Rated);
- 
-//     //   //create a div for the release date
-//     //   var realeaseMoment = moment(response.Released, "DD MMM YYYY");
-//     //   var formattedDate = realeaseMoment.format("MMMM [the] Do [in the superawesome year] YYYY");
- 
-//     //   var releaseDate = $("<div>Released " +formattedDate +"</div>");
- 
-//     //   //create a div for the plot
-//     //   var plot = $("<div>" + response.Plot + "</div>");
- 
-//     //   //append to movies-view div
- 
-//     //   $("#movies-view").prepend($("<hr>"));
-//     //   $("#movies-view").prepend(releaseDate);
-//     //   $("#movies-view").prepend(rating);
-//     //   $("#movies-view").prepend(poster);
-//     //   $("#movies-view").prepend(plot);
- 
- 
-    });
- 
-  }
 
-displayWeatherInfo();
 //city name
 // date
 //icon
