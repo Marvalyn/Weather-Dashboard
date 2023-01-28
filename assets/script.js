@@ -23,6 +23,9 @@ function displayWeatherInfo() {
        var cityName = $("#current-city-name");
        // adding text from JSON data to complete city name
        cityName.text("Current Weather In: " + response.city.name);
+
+       var today =moment();
+       $("#current-date").text("Date: " + today.format("dddd, Do MMMM YYYY"));
 });
 }
 // date
