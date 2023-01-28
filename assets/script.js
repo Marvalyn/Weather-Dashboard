@@ -1,6 +1,7 @@
 //add url + api key
 var cities =[];
 
+
 function renderButtons() {
 
     // Deleting the movie buttons prior to adding new movie buttons
@@ -26,19 +27,69 @@ function renderButtons() {
 
 $("#search-button").on("click", function(event) {
     // event.preventDefault() prevents the form from trying to submit itself.
-    // We're using a form so that the user can hit enter instead of clicking the button if they want
     event.preventDefault();
-  
-    // This line will grab the text from the input box
+     // // This line will grab the text from the input box
     var cityButton = $("#search-input").val().trim();
-    // The movie from the textbox is then added to our array
+   //This line pushes the new input city into the cities array
     cities.push(cityButton);
   
-    // calling renderButtons which handles the processing of our movie array
+    // calling renderButtons which handles the processing of our city array
     renderButtons();
   });
+
 // use local storage to persist data
+
 // use api key to retrieve data for a city when the city is searched
+function displayWeatherInfo() {
+
+   var inputCity = $("#search-input").val();
+    var apikey = "e192b61e6756ca61eb77509d35105cc3";
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q="+inputCity+"&appid="+apikey;
+ 
+    // Creates AJAX call for the specific city being called
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+     
+      console.log(response);
+
+//     //   $("#movies-view").empty();
+ 
+//     //   //create a HTML tag for the poster image
+//     //   var poster = $("<img>");
+//     //   //update the source attribute
+//     //   poster.attr("src", response.Poster);
+//     //   $("#movies-view").append(poster);
+ 
+ 
+//     //   //create a div for the rating
+//     //   var rating = $("<div>");
+//     //   rating.text("Rated " + response.Rated);
+ 
+//     //   //create a div for the release date
+//     //   var realeaseMoment = moment(response.Released, "DD MMM YYYY");
+//     //   var formattedDate = realeaseMoment.format("MMMM [the] Do [in the superawesome year] YYYY");
+ 
+//     //   var releaseDate = $("<div>Released " +formattedDate +"</div>");
+ 
+//     //   //create a div for the plot
+//     //   var plot = $("<div>" + response.Plot + "</div>");
+ 
+//     //   //append to movies-view div
+ 
+//     //   $("#movies-view").prepend($("<hr>"));
+//     //   $("#movies-view").prepend(releaseDate);
+//     //   $("#movies-view").prepend(rating);
+//     //   $("#movies-view").prepend(poster);
+//     //   $("#movies-view").prepend(plot);
+ 
+ 
+    });
+ 
+  }
+
+displayWeatherInfo();
 //city name
 // date
 //icon
