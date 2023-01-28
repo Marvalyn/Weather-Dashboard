@@ -61,19 +61,30 @@ function displayWeatherInfo() {
         // })
 
         // var fiveDayTemperature = $(".temperature").
-        for (var i = 0; i < 5; i++) {
-            // temperature
-            $(".temperature").text("Temperature: " + response.list[i].main.temp);
-            // humidity
-            $(".humidity").text("Humidity: " + response.list[i].main.humidity + "%");
-            //icons
-            $(".img-class").attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[i].icon + "@4x.png");
-        }
-        
+        // for (var i = 0; i < 5; i++) {
+        //     // temperature
+        //     $(".temperature").text("Temperature: " + response.list[i].main.temp);
+        //     // humidity
+        //     $(".humidity").text("Humidity: " + response.list[i].main.humidity + "%");
+        //     //icons
+        //     $(".img-class").attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[i].icon + "@4x.png");
+        // }
+        var dayOne = moment().add(1, 'days').format("dddd, Do MMMM YYYY")
+        $("#day1").text("Date: " + dayOne);
+
+        var dayTwo = moment().add(2, 'days').format("dddd, Do MMMM YYYY")
+        $("#day2").text("Date: " + dayTwo);
+
+        var dayThree = moment().add(3, 'days').format("dddd, Do MMMM YYYY")
+        $("#day3").text("Date: " + dayThree);
+
+        var dayFour = moment().add(4, 'days').format("dddd, Do MMMM YYYY")
+        $("#day4").text("Date: " + dayFour);
+
+        var dayFive = moment().add(5, 'days').format("dddd, Do MMMM YYYY")
+        $("#day5").text("Date: " + dayFive);
     });
 }
-
-
 
 
 //weather condistions are displayed as a 5 day forecast showing
