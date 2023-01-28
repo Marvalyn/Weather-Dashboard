@@ -34,12 +34,21 @@ function displayWeatherInfo() {
        var currentTemp = $("#current-temperature");
        currentTemp.text("Current Temperature: " + response.list[0].main.temp);
 
+       // humidity
+       var currentHumidity = $("#current-humidity");
+       currentHumidity.text("Current Humidity: " + response.list[0].main.humidity + "%");
+
+       //windspeed
+       var currentWindspeed = $("#current-windspeed");
+
+       currentWindspeed.text("Current Windspeed: " + response.list[0].wind.speed + "m/s");
+
 });
 }
 
 //icon
 
-// humidity
+
 //windspeed
 
 // add weather conditions for coming 5 days
