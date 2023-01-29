@@ -49,19 +49,6 @@ function displayWeatherInfo() {
         var currentWeatherIcon = response.list[0].weather[0].icon;
         currentIcon.attr("src", "http://openweathermap.org/img/wn/" + currentWeatherIcon + "@4x.png");
 
-        // add weather conditions for coming 5 days
-        // for (var i=0; i <6; i++) {
-        //     $("#day" + (i+1) + "Date").text
-        // }
-
-        // for (var i=0; i<5; i++) {
-        //     $(".temperature")
-        // }
-
-        // $(".temperature").each(function () {
-        //     $(this).text("Current Temperature: " + response.list[i].main.temp);
-        // })
-
         // var fiveDayTemperature = $(".temperature").
         // for (var i = 0; i < 5; i++) {
         //     // temperature
@@ -69,7 +56,7 @@ function displayWeatherInfo() {
         //     // humidity
         //     $(".humidity").text("Humidity: " + response.list[i].main.humidity + "%");
         //     //icons
-        //     $(".img-class").attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[i].icon + "@4x.png");
+        //     $(".img-class").attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png");
         // }
         var dayOne = moment().add(1, 'days').format("dddd, Do MMMM YYYY")
         $("#day1").text(dayOne);
@@ -145,21 +132,20 @@ function displayWeatherInfo() {
 //when a city is searched append buttons to the list of button
 function renderButtons() {
 
-    // Deleting the movie buttons prior to adding new movie buttons
+    // Deleting the buttons prior to adding new buttons
     // (this is necessary otherwise we will have repeat buttons)
     $("#history").empty();
     
-    // Looping through the array of movies
+    // Looping through the array of cities
     for (var i = 0; i < cities.length; i++) {
 
-        // Then dynamicaly generating buttons for each movie in the array.
-        // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
+        // Then dynamicaly generating buttons for each city in the array.
         var a = $("<button>");
         // Adding a class
         a.addClass("city-history");
-        // Adding a data-attribute with a value of the movie at index i
+        // Adding a data-attribute with a value of the city at index i
         a.attr("data-name", cities[i]);
-        // Providing the button's text with a value of the movie at index i
+        // Providing the button's text with a value of the city at index i
         a.text(cities[i]);
         // Adding the button to the HTML
         $("#history").append(a);
@@ -179,9 +165,9 @@ $("#search-button").on("click", function (event) {
     cities.push(cityButton);
 
     // var cityList = JSON.stringify(cityLocation);
-    // console.log(cityList);
+    console.log(cities);
 
-    // localStorage.setItem("location", cities);
+    localStorage.setItem("location", cities);
    
     // localStorage.getItem(location);
 
@@ -197,7 +183,12 @@ $("#search-button").on("click", function (event) {
     // }
 });
 
-
+$(".city-history").on("click",function(event){
+        event.preventDefault();
+        var searchedCity = $(this).attr("data-name", cities[i]);
+        // This queries the ajax function to return the city.
+        displayWeatherInfo(searchedCity);
+    });
 // function addHistory() {
 //     // Check for changes in the local item and log them
 //     var location = cities.push($("#search-input").val());
@@ -217,3 +208,18 @@ $("#search-button").on("click", function (event) {
 
 
 
+// $("#history").on("click", function (event) {
+//     var target = $(event.target);
+//     if (target.is("button")) {
+//       console.log(target.text());
+//       console.log(target.data());
+//       fetch(
+//         "https://api.openweathermap.org/data/2.5/forecast?q=" + target.text() + "&units=metric&appid=184c633681edbe39db7894b1a26e644b")
+//         .then(function (response) {
+//           return response.json();
+//         })
+//         .then(function (data) {
+//           displayWeatherInfo(data);
+//         });
+//     }
+// });
