@@ -1,6 +1,8 @@
 //add url + api key
 var cities = [];
 
+$(".grid-child").hide()
+
 function displayWeatherInfo() {
 
     var inputCity = $("#search-input").val();
@@ -93,7 +95,7 @@ function renderButtons() {
     // Deleting the movie buttons prior to adding new movie buttons
     // (this is necessary otherwise we will have repeat buttons)
     $("#history").empty();
-
+    
     // Looping through the array of movies
     for (var i = 0; i < cities.length; i++) {
 
@@ -109,7 +111,7 @@ function renderButtons() {
         // Adding the button to the HTML
         $("#history").append(a);
     }
-
+    $(".grid-child").show()
     // console.log(localStorage)
 
 }
@@ -117,6 +119,7 @@ function renderButtons() {
 $("#search-button").on("click", function (event) {
     // event.preventDefault() prevents the form from trying to submit itself.
     event.preventDefault();
+
     // // This line will grab the text from the input box
     var cityButton = $("#search-input").val().trim();
     //This line pushes the new input city into the cities array
