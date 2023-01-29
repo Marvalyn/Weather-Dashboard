@@ -14,8 +14,8 @@ function displayWeatherInfo() {
         method: "GET"
     }).then(function (response) {
 
-        console.log(queryURL);
-        console.log(response);
+        // console.log(queryURL);
+        // console.log(response);
 
         //add weather info for current day
         //city name
@@ -124,7 +124,9 @@ $("#search-button").on("click", function (event) {
 
     // var cityList = JSON.stringify(cityLocation);
     // console.log(cityList);
-    localStorage.setItem("location", cities);
+
+    // localStorage.setItem("location", cities);
+   
     // localStorage.getItem(location);
 
     // console.log(location)
@@ -132,10 +134,12 @@ $("#search-button").on("click", function (event) {
     renderButtons();
     displayWeatherInfo();
 
-    for (var i = 0; i < cities.length; i++) {
+    localStorage.setItem("location", cities);
+    // localStorage.getItem("location").split(",");
+    // for (var i = 0; i < 20; i++) {
         // select the 
         $(".city-history" + i).val(localStorage.getItem(i));
-    }
+    // }
 });
 
 
