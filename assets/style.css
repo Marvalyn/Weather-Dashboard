@@ -40,6 +40,8 @@ section {
 
 .grid-child{
     border-left-style: solid;
-    background-color: #563d7c;
-    color: white;
+    border-right-style: solid;
+    background-color:mediumorchid;
+    color:black;
+    text-align: center;
 }

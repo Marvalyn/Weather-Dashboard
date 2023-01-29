@@ -34,7 +34,7 @@ function displayWeatherInfo() {
 
         // temperature
         var currentTemp = $("#current-temperature");
-        currentTemp.text("Current Temperature: " + response.list[0].main.temp + "C");
+        currentTemp.text("Current Temperature: " + response.list[0].main.temp + "°C");
 
         // humidity
         var currentHumidity = $("#current-humidity");
@@ -72,19 +72,19 @@ function displayWeatherInfo() {
         //     $(".img-class").attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[i].icon + "@4x.png");
         // }
         var dayOne = moment().add(1, 'days').format("dddd, Do MMMM YYYY")
-        $("#day1").text("Date: " + dayOne);
+        $("#day1").text(dayOne);
 
         var dayTwo = moment().add(2, 'days').format("dddd, Do MMMM YYYY")
-        $("#day2").text("Date: " + dayTwo);
+        $("#day2").text(dayTwo);
 
         var dayThree = moment().add(3, 'days').format("dddd, Do MMMM YYYY")
-        $("#day3").text("Date: " + dayThree);
+        $("#day3").text(dayThree);
 
         var dayFour = moment().add(4, 'days').format("dddd, Do MMMM YYYY")
-        $("#day4").text("Date: " + dayFour);
+        $("#day4").text(dayFour);
 
         var dayFive = moment().add(5, 'days').format("dddd, Do MMMM YYYY")
-        $("#day5").text("Date: " + dayFive);
+        $("#day5").text(dayFive);
 
         //icons
     var iconOne= $("#icon-1");
@@ -109,19 +109,19 @@ function displayWeatherInfo() {
 
     //temperature
     var tempOne = $("#temperature1");
-    tempOne.text("Temperature: " + response.list[1].main.temp + "C");
+    tempOne.text("Temp: " + response.list[1].main.temp + "°C");
 
     var tempTwo = $("#temperature2");
-    tempTwo.text("Temperature: " + response.list[2].main.temp + "C");
+    tempTwo.text("Temp: " + response.list[2].main.temp + "°C");
 
     var tempThree = $("#temperature3");
-    tempThree.text("Temperature: " + response.list[3].main.temp + "C");
+    tempThree.text("Temp: " + response.list[3].main.temp + "°C");
 
     var tempFour = $("#temperature4");
-    tempFour.text("Temperature: " + response.list[4].main.temp + "C");
+    tempFour.text("Temp: " + response.list[4].main.temp + "°C");
 
     var tempFive = $("#temperature5");
-    tempFive.text("Temperature: " + response.list[5].main.temp + "C");
+    tempFive.text("Temp: " + response.list[5].main.temp + "°C");
 
     //humidity
      var humidityOne = $("#humidity1");
