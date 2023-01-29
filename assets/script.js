@@ -87,13 +87,6 @@ function displayWeatherInfo() {
 }
 
 
-//weather condistions are displayed as a 5 day forecast showing
-// date
-
-
-
-
-
 //when a city is searched append buttons to the list of button
 function renderButtons() {
 
@@ -116,7 +109,10 @@ function renderButtons() {
         // Adding the button to the HTML
         $("#history").append(a);
     }
-};
+
+    // console.log(localStorage)
+
+}
 
 $("#search-button").on("click", function (event) {
     // event.preventDefault() prevents the form from trying to submit itself.
@@ -126,27 +122,36 @@ $("#search-button").on("click", function (event) {
     //This line pushes the new input city into the cities array
     cities.push(cityButton);
 
+    // var cityList = JSON.stringify(cityLocation);
+    // console.log(cityList);
+    localStorage.setItem("location", cities);
+    // localStorage.getItem(location);
+
+    // console.log(location)
     // calling renderButtons which handles the processing of our city array
     renderButtons();
     displayWeatherInfo();
+
+    for (var i = 0; i < cities.length; i++) {
+        // select the 
+        $(".city-history" + i).val(localStorage.getItem(i));
+    }
 });
 
-function addHistory(city) {
-    // Check for changes in the local item and log them
-    cities.push(city);
-    localStorage.setItem("cities", cities);
-};
 
-// use local storage to persist data
+// function addHistory() {
+//     // Check for changes in the local item and log them
+//     var location = cities.push($("#search-input").val());
+//     localStorage.setItem("cities", cities);
+// };
 
-// when button from list is clicked they are again presented with curent and future conditions for that city
-// $(".city-history").on("click", function (event) {
-//     event.preventDefault();
-//     displayWeatherInfo();
-// })
+// function addHistory() {
+    
+//     var location = cities.split(",");
+//     // $("#history").children("button").val();
+//     // var weather = $("#history").children("button").attr("data-name");
+    
+//     localStorage.setItem("location", location)
+// }
 
-
-
-
-
-
+// addHistory();
