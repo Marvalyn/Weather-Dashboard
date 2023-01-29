@@ -16,8 +16,8 @@ function displayWeatherInfo() {
         method: "GET"
     }).then(function (response) {
 
-        // console.log(queryURL);
-        // console.log(response);
+        console.log(queryURL);
+        console.log(response);
 
         //add weather info for current day
         //city name
@@ -34,7 +34,7 @@ function displayWeatherInfo() {
 
         // temperature
         var currentTemp = $("#current-temperature");
-        currentTemp.text("Current Temperature: " + response.list[0].main.temp);
+        currentTemp.text("Current Temperature: " + response.list[0].main.temp + "C");
 
         // humidity
         var currentHumidity = $("#current-humidity");
@@ -85,6 +85,59 @@ function displayWeatherInfo() {
 
         var dayFive = moment().add(5, 'days').format("dddd, Do MMMM YYYY")
         $("#day5").text("Date: " + dayFive);
+
+        //icons
+    var iconOne= $("#icon-1");
+    var forecastIconOne = response.list[1].weather[0].icon;
+    iconOne.attr("src", "http://openweathermap.org/img/wn/" + forecastIconOne + "@2x.png");
+
+    var iconTwo= $("#icon-2");
+    var forecastIconTwo = response.list[2].weather[0].icon;
+    iconTwo.attr("src", "http://openweathermap.org/img/wn/" + forecastIconTwo + "@2x.png");
+
+    var iconThree= $("#icon-3");
+    var forecastIconThree = response.list[3].weather[0].icon;
+    iconThree.attr("src", "http://openweathermap.org/img/wn/" + forecastIconThree + "@2x.png");
+
+    var iconFour= $("#icon-4");
+    var forecastIconFour = response.list[4].weather[0].icon;
+    iconFour.attr("src", "http://openweathermap.org/img/wn/" + forecastIconFour + "@2x.png");
+
+    var iconFive= $("#icon-5");
+    var forecastIconFive = response.list[5].weather[0].icon;
+    iconFive.attr("src", "http://openweathermap.org/img/wn/" + forecastIconFive + "@2x.png");
+
+    //temperature
+    var tempOne = $("#temperature1");
+    tempOne.text("Temperature: " + response.list[1].main.temp + "C");
+
+    var tempTwo = $("#temperature2");
+    tempTwo.text("Temperature: " + response.list[2].main.temp + "C");
+
+    var tempThree = $("#temperature3");
+    tempThree.text("Temperature: " + response.list[3].main.temp + "C");
+
+    var tempFour = $("#temperature4");
+    tempFour.text("Temperature: " + response.list[4].main.temp + "C");
+
+    var tempFive = $("#temperature5");
+    tempFive.text("Temperature: " + response.list[5].main.temp + "C");
+
+    //humidity
+     var humidityOne = $("#humidity1");
+    humidityOne.text("Humidity: " + response.list[1].main.humidity + "%");
+
+    var humidityTwo = $("#humidity2");
+    humidityTwo.text("Humidity: " + response.list[2].main.humidity + "%");
+
+    var humidityThree = $("#humidity3");
+    humidityThree.text("Humidity: " + response.list[3].main.humidity + "%");
+
+    var humidityFour = $("#humidity4");
+    humidityFour.text("Humidity: " + response.list[4].main.humidity + "%");
+
+    var humidityFive = $("#humidity5");
+    humidityFive.text("Humidity: " + response.list[5].main.humidity + "%");
     });
 }
 
@@ -136,12 +189,11 @@ $("#search-button").on("click", function (event) {
     // calling renderButtons which handles the processing of our city array
     renderButtons();
     displayWeatherInfo();
-
-    localStorage.setItem("location", cities);
-    // localStorage.getItem("location").split(",");
-    // for (var i = 0; i < 20; i++) {
-        // select the 
-        $(".city-history" + i).val(localStorage.getItem(i));
+    // localStorage.setItem("location", cities);
+    // // localStorage.getItem("location").split(",");
+    // // for (var i = 0; i < 20; i++) {
+    //     // select the 
+    //     $(".city-history" + i).val(localStorage.getItem(i));
     // }
 });
 
@@ -162,3 +214,6 @@ $("#search-button").on("click", function (event) {
 // }
 
 // addHistory();
+
+
+
