@@ -124,7 +124,14 @@ function displayWeatherInfo(city) {
 //when a city is searched append buttons to the list of button
 function renderButtons(city) {
 
-   
+    // Deleting the buttons prior to adding new buttons
+    // (this is necessary otherwise we will have repeat buttons)
+    $("#history").empty();
+
+    // Looping through the array of cities
+    // for (var i = 0; i < cities.length; i++) {
+
+    // Then dynamicaly generating buttons for each city in the array.
     var a = $("<button>");
     // Adding a class
     a.addClass("city-history");
@@ -133,9 +140,9 @@ function renderButtons(city) {
     // Providing the button's text with a value of the city at index i
     a.text(city);
     // Adding the button to the HTML
-    $("#history").append(a);
+    // $("#history").append(a);
     // }
-
+    addHistory();
     // console.log(localStorage)
 
 }
@@ -164,16 +171,9 @@ $("#search-button").on("click", function (event) {
    
 });
 
-
-
 function addHistory() {
     // Check for changes in the local item and log them
     // .split(",")
-    let storedCities = JSON.parse(localStorage.getItem('searchHistory'));
-        // If cities were retrieved from localStorage, update the search history array
-        if (storedCities !== null) {
-            searchHistory = storedCities;
-        }
     var recentCities = (localStorage.getItem("location").split(","));
     console.log(localStorage.getItem("location").split(","));
 
@@ -191,7 +191,7 @@ function addHistory() {
     })
 };
 
-addHistory();
+
 
 function forecastHistory (button,city) {
 $(button).on("click", function () {
