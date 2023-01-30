@@ -126,7 +126,7 @@ function renderButtons(city) {
 
     // Deleting the buttons prior to adding new buttons
     // (this is necessary otherwise we will have repeat buttons)
-    $("#history").empty();
+    // $("#history").empty();
 
     // Looping through the array of cities
     // for (var i = 0; i < cities.length; i++) {
@@ -140,11 +140,8 @@ function renderButtons(city) {
     // Providing the button's text with a value of the city at index i
     a.text(city);
     // Adding the button to the HTML
-    // $("#history").append(a);
-    // }
-    addHistory();
+    $("#history").append(a);
     // console.log(localStorage)
-
 }
 
 $("#search-button").on("click", function (event) {
@@ -156,24 +153,17 @@ $("#search-button").on("click", function (event) {
     if (!cities.includes(cityButton)) {
         //This line pushes the new input city into the cities array
         cities.push(cityButton);
-
-        // var cityList = JSON.stringify(cityLocation);
         console.log(cities);
-
         localStorage.setItem("location", cities);
-
-        // console.log(location)
         // calling renderButtons which handles the processing of our city array
         renderButtons(cityButton);
-    }
-    $(".grid-child").show()
+    } 
+    $(".grid-child").show();
     displayWeatherInfo();
-   
 });
 
 function addHistory() {
     // Check for changes in the local item and log them
-    // .split(",")
     var recentCities = (localStorage.getItem("location").split(","));
     console.log(localStorage.getItem("location").split(","));
 
@@ -181,17 +171,15 @@ function addHistory() {
         var a = $("<button>");
         // Adding a class
         a.addClass("city-history");
-        // Adding a data-attribute with a value of the city at index i
+        // Adding a data-attribute with a value of the city
         a.attr("data-name", city);
-        // Providing the button's text with a value of the city at index i
+        // Providing the button's text with a value of the city
         a.text(city);
         forecastHistory(a,city);
         // Adding the button to the HTML
         $("#history").append(a);
     })
 };
-
-
 
 function forecastHistory (button,city) {
 $(button).on("click", function () {
@@ -200,3 +188,4 @@ $(button).on("click", function () {
     });
 };
 
+addHistory();
