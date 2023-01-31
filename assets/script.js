@@ -177,3 +177,10 @@ function forecastHistory(button, city) {
 };
 
 addHistory();
+
+var clearButton = $("#clear");
+
+$("#clear-button").on("click", function() {
+   window.localStorage.clear();
+   $("#history").empty();
+    });
