@@ -1,5 +1,11 @@
-//add url + api key
-var cities = [];
+function getCities() {
+    var cities = [];
+    var tempCities = localStorage.getItem("location");
+
+    if (tempCities !== null) {
+        cities = tempCities.split(",");
+    } return cities;
+}
 
 $(".grid-child").hide()
 
@@ -49,7 +55,7 @@ function displayWeatherInfo(city) {
         var currentWeatherIcon = response.list[0].weather[0].icon;
         currentIcon.attr("src", "http://openweathermap.org/img/wn/" + currentWeatherIcon + "@4x.png");
 
-    
+
         var dayOne = moment().add(1, 'days').format("dddd, Do MMMM YYYY")
         $("#day1").text(dayOne);
 
@@ -121,52 +127,30 @@ function displayWeatherInfo(city) {
         $(".grid-child").show();
     });
 }
-//when a city is searched append buttons to the list of button
-function renderButtons(city) {
-
-    // Deleting the buttons prior to adding new buttons
-    // (this is necessary otherwise we will have repeat buttons)
-    // $("#history").empty();
-
-    // Looping through the array of cities
-    // for (var i = 0; i < cities.length; i++) {
-
-    // Then dynamicaly generating buttons for each city in the array.
-    var a = $("<button>");
-    // Adding a class
-    a.addClass("city-history");
-    // Adding a data-attribute with a value of the city at index i
-    a.attr("data-name", city);
-    // Providing the button's text with a value of the city at index i
-    a.text(city);
-    // Adding the button to the HTML
-    $("#history").append(a);
-    // console.log(localStorage)
-}
 
 $("#search-button").on("click", function (event) {
     // event.preventDefault() prevents the form from trying to submit itself.
     event.preventDefault();
     // var cities = (localStorage.getItem("location").split(","));
     // // This line will grab the text from the input box
-    var cityButton = $("#search-input").val().trim();
-    if (!cities.includes(cityButton)) {
+    var cities = getCities();
+    var proposedCity = $("#search-input").val().trim();
+    if (!cities.includes(proposedCity)) {
         //This line pushes the new input city into the cities array
-        cities.push(cityButton);
+        cities.push(proposedCity);
         console.log(cities);
         localStorage.setItem("location", cities);
         // calling renderButtons which handles the processing of our city array
-        renderButtons(cityButton);
-    } 
+        addHistory();
+    }
     $(".grid-child").show();
     displayWeatherInfo();
 });
 
 function addHistory() {
     // Check for changes in the local item and log them
-    var recentCities = (localStorage.getItem("location").split(","));
-    console.log(localStorage.getItem("location").split(","));
-
+    $("#history").empty();
+    var recentCities =  getCities();
     recentCities.forEach(function (city) {
         var a = $("<button>");
         // Adding a class
@@ -175,16 +159,20 @@ function addHistory() {
         a.attr("data-name", city);
         // Providing the button's text with a value of the city
         a.text(city);
-        forecastHistory(a,city);
+        forecastHistory(a, city);
         // Adding the button to the HTML
         $("#history").append(a);
     })
 };
-
-function forecastHistory (button,city) {
-$(button).on("click", function () {
-    console.log(city);
-    displayWeatherInfo(city);
+var currentCity ="";
+function forecastHistory(button, city) {
+    $(button).on("click", function () {
+        if (city !== currentCity) {
+            currentCity = city
+            console.log(city);
+        displayWeatherInfo(city);
+        }
+       
     });
 };
 
