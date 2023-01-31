@@ -13,7 +13,7 @@ function displayWeatherInfo(city) {
 
     var inputCity = city || $("#search-input").val();
     var apikey = "184c633681edbe39db7894b1a26e644b";
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&units=metric&appid=" + apikey;
+    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&units=metric&appid=" + apikey;
 
     //  console.log(inputCity);
     // Creates AJAX call for the specific city being called
@@ -53,7 +53,7 @@ function displayWeatherInfo(city) {
         //icon
         var currentIcon = $("#current-icon");
         var currentWeatherIcon = response.list[0].weather[0].icon;
-        currentIcon.attr("src", "https://openweathermap.org/img/wn/" + currentWeatherIcon + "@4x.png");
+        currentIcon.attr("src", "http://openweathermap.org/img/wn/" + currentWeatherIcon + "@4x.png");
 
 
         var dayOne = moment().add(1, 'days').format("dddd, Do MMMM YYYY")
@@ -74,23 +74,23 @@ function displayWeatherInfo(city) {
         //icons
         var iconOne = $("#icon-1");
         var forecastIconOne = response.list[1].weather[0].icon;
-        iconOne.attr("src", "https://openweathermap.org/img/wn/" + forecastIconOne + "@2x.png");
+        iconOne.attr("src", "http://openweathermap.org/img/wn/" + forecastIconOne + "@2x.png");
 
         var iconTwo = $("#icon-2");
         var forecastIconTwo = response.list[2].weather[0].icon;
-        iconTwo.attr("src", "https://openweathermap.org/img/wn/" + forecastIconTwo + "@2x.png");
+        iconTwo.attr("src", "http://openweathermap.org/img/wn/" + forecastIconTwo + "@2x.png");
 
         var iconThree = $("#icon-3");
         var forecastIconThree = response.list[3].weather[0].icon;
-        iconThree.attr("src", "https://openweathermap.org/img/wn/" + forecastIconThree + "@2x.png");
+        iconThree.attr("src", "http://openweathermap.org/img/wn/" + forecastIconThree + "@2x.png");
 
         var iconFour = $("#icon-4");
         var forecastIconFour = response.list[4].weather[0].icon;
-        iconFour.attr("src", "https://openweathermap.org/img/wn/" + forecastIconFour + "@2x.png");
+        iconFour.attr("src", "http://openweathermap.org/img/wn/" + forecastIconFour + "@2x.png");
 
         var iconFive = $("#icon-5");
         var forecastIconFive = response.list[5].weather[0].icon;
-        iconFive.attr("src", "https://openweathermap.org/img/wn/" + forecastIconFive + "@2x.png");
+        iconFive.attr("src", "http://openweathermap.org/img/wn/" + forecastIconFive + "@2x.png");
 
         //temperature
         var tempOne = $("#temperature1");
